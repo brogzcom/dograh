@@ -154,20 +154,20 @@ services:
       REDIS_URL: "redis://:${REDIS_PASSWORD:-redissecret}@redis:6379"
 
       ENABLE_AWS_S3: "true"
-      MINIO_ENDPOINT: "minio:9000"
+      # MINIO_ENDPOINT: "minio:9000"
       # Full public URL browsers use to fetch audio. Traefik routes
       # /voice-audio/ to minio:9000. This replaces the nginx sub_filter hack.
-      MINIO_PUBLIC_ENDPOINT: "https://${PUBLIC_HOST}"
+      # MINIO_PUBLIC_ENDPOINT: "https://${PUBLIC_HOST}"
       # Must match the MinIO root creds above (same env vars).
-      MINIO_ACCESS_KEY: "${MINIO_ROOT_USER:-minioadmin}"
-      MINIO_SECRET_KEY: "${MINIO_ROOT_PASSWORD:-minioadmin}"
-      MINIO_BUCKET: "voice-audio"
-      MINIO_SECURE: "false"
+      # MINIO_ACCESS_KEY: "${MINIO_ROOT_USER:-minioadmin}"
+      # MINIO_SECRET_KEY: "${MINIO_ROOT_PASSWORD:-minioadmin}"
+      # MINIO_BUCKET: "voice-audio"
+      # MINIO_SECURE: "false"
 
       S3_BUCKET: "${S3_BUCKET:?S3_BUCKET required}"
       S3_REGION: "${S3_REGION:-sa-east-1}"
       S3_SIGNATURE_VERSION: "s3v4"
-      S3_ADDRESSING_STYLE: "path"
+      S3_ADDRESSING_STYLE: "virtual"
       AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID:?required}"
       AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY:?required}"
 
